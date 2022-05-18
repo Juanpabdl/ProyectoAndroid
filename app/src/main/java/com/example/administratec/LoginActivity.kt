@@ -10,6 +10,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
+
+        //Boton que manda al menu de 3 fragmentos
         val btnLogin: Button = findViewById(R.id.buttonLogin)
         btnLogin.setOnClickListener {
 

@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav1">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav1"
+    app:startDestination="@id/pieChartFragment">
 
+    <fragment
+        android:id="@+id/pieChartFragment"
+        android:name="com.example.administratec.PieChartFragment"
+        android:label="fragment_pie_chart"
+        tools:layout="@layout/fragment_pie_chart" />
+    <fragment
+        android:id="@+id/recomendacionesFragment"
+        android:name="com.example.administratec.RecomendacionesFragment"
+        android:label="fragment_recomendaciones"
+        tools:layout="@layout/fragment_recomendaciones" />
+    <fragment
+        android:id="@+id/agregarGastoFragment"
+        android:name="com.example.administratec.AgregarGastoFragment"
+        android:label="fragment_agregar_gasto"
+        tools:layout="@layout/fragment_agregar_gasto" />
 </navigation>
