@@ -1,7 +1,9 @@
 package com.example.administratec
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import com.example.administratec.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +13,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        //El boton Iniciar Sesion cambia a la pantalla Login
+        val btnIniciarSesion: Button = findViewById(R.id.buttonInicio)
+        btnIniciarSesion.setOnClickListener {
+
+            val intent: Intent = Intent (this, LoginActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }

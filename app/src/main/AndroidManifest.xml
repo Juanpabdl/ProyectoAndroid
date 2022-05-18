@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AdministraTec">
         <activity
+            android:name=".Grafica_Gastos_Recomendaciones"
+            android:exported="false" />
+        <activity
             android:name=".RegistroActivity2"
             android:exported="false" />
         <activity
