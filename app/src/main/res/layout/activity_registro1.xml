@@ -22,7 +22,7 @@
         android:layout_width="293dp"
         android:layout_height="59dp"
         android:hint="Cual es su presupuesto?"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSalir"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,12 +35,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/buttonSalir"
+        android:id="@+id/buttonRegresar"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
-        android:text="Salir"
+        android:text="Regresar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonSeguir"
         app:layout_constraintHorizontal_bias="0.5"
@@ -51,10 +51,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Siguiente"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonSalir"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonRegresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonSalir"
-        app:layout_constraintTop_toTopOf="@+id/buttonSalir"
+        app:layout_constraintStart_toEndOf="@+id/buttonRegresar"
+        app:layout_constraintTop_toTopOf="@+id/buttonRegresar"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,15 +10,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
         //El boton Iniciar Sesion cambia a la pantalla Login
-        val btnIniciarSesion: Button = findViewById(R.id.buttonInicio)
-        btnIniciarSesion.setOnClickListener {
-
+        //val btnIniciarSesion: Button = findViewById(R.id.buttonInicio)
+        binding.buttonInicio.setOnClickListener {
             val intent: Intent = Intent (this, LoginActivity::class.java)
             startActivity(intent)
         }
