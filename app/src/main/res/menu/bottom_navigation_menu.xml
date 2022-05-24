@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/pieChartFragment"
+        android:icon="@drawable/ic_baseline_donut_large_24"
+        android:title="Gráfica" />
+    <item
+        android:id="@+id/agregarGastoFragment"
+        android:icon="@drawable/ic_baseline_add_box_24"
+        android:title="Agregar Gasto" />
+    <item
+        android:id="@+id/recomendacionesFragment"
+        android:icon="@drawable/ic_baseline_article_24"
+        android:title="Recomendaciones" />
+</menu>
