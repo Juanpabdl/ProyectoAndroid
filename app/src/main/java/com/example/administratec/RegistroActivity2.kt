@@ -14,5 +14,16 @@ class RegistroActivity2 : AppCompatActivity() {
         setContentView(binding.root)
 
 
+        binding.buttonRegresar.setOnClickListener{
+            val intent: Intent = Intent(this, RegistroActivity1::class.java)
+            startActivity(intent)
+        }
+
+        binding.buttonTerminar.setOnClickListener {
+            val intent: Intent = Intent(this, Grafica_Gastos_Recomendaciones::class.java)
+            startActivity(intent)
+        }
+
+
     }
 }

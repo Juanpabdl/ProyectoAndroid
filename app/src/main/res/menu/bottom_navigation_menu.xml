@@ -4,13 +4,16 @@
     <item
         android:id="@+id/pieChartFragment"
         android:icon="@drawable/ic_baseline_donut_large_24"
-        android:title="Gráfica" />
+        android:title="Gráfica"
+        android:iconTint="@color/black"/>
     <item
         android:id="@+id/agregarGastoFragment"
         android:icon="@drawable/ic_baseline_add_box_24"
-        android:title="Agregar Gasto" />
+        android:title="Agregar Gasto"
+        android:iconTint="@color/black"/>
     <item
         android:id="@+id/recomendacionesFragment"
         android:icon="@drawable/ic_baseline_article_24"
-        android:title="Recomendaciones" />
+        android:title="Recomendaciones"
+        android:iconTint="@color/black"/>
 </menu>

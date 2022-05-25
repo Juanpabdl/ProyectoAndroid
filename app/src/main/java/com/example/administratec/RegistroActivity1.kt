@@ -13,6 +13,16 @@ class RegistroActivity1 : AppCompatActivity() {
         binding = ActivityRegistro1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.buttonSeguir.setOnClickListener{
+            val intent: Intent = Intent(this, RegistroActivity2::class.java)
+            startActivity(intent)
+        }
+
+        binding.buttonRegresar.setOnClickListener{
+            val intent: Intent = Intent(this, RegistroActivity0::class.java)
+            startActivity(intent)
+        }
+
 
     }
 }
