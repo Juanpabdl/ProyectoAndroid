@@ -9,7 +9,11 @@
         android:id="@+id/pieChartFragment"
         android:name="com.example.administratec.PieChartFragment"
         android:label="fragment_pie_chart"
-        tools:layout="@layout/fragment_pie_chart" />
+        tools:layout="@layout/fragment_pie_chart" >
+        <action
+            android:id="@+id/action_pieChartFragment_to_percentage2"
+            app:destination="@id/percentage2" />
+    </fragment>
     <fragment
         android:id="@+id/recomendacionesFragment"
         android:name="com.example.administratec.RecomendacionesFragment"
@@ -32,5 +36,14 @@
         <action
             android:id="@+id/action_llenarGastoFragment_to_agregarGastoFragment"
             app:destination="@id/agregarGastoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/percentage2"
+        android:name="com.example.administratec.percentage"
+        android:label="fragment_percentage"
+        tools:layout="@layout/fragment_percentage" >
+        <action
+            android:id="@+id/action_percentage2_to_pieChartFragment"
+            app:destination="@id/pieChartFragment" />
     </fragment>
 </navigation>

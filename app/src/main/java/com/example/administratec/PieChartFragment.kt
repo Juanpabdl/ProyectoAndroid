@@ -49,7 +49,7 @@ class PieChartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnChange.setOnClickListener(){
-            Navigation.findNavController(view).navigate(R.id.action_pieChartFragment2_to_percentage)
+            Navigation.findNavController(view).navigate(R.id.action_pieChartFragment_to_percentage2)
         }
     }
 
