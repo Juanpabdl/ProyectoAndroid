@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chartnav"
+    app:startDestination="@id/pieChartFragment2">
+
+    <fragment
+        android:id="@+id/pieChartFragment2"
+        android:name="com.example.administratec.PieChartFragment"
+        android:label="fragment_pie_chart"
+        tools:layout="@layout/fragment_pie_chart" >
+        <action
+            android:id="@+id/action_pieChartFragment2_to_percentage"
+            app:destination="@id/percentage" />
+    </fragment>
+    <fragment
+        android:id="@+id/percentage"
+        android:name="com.example.administratec.percentage"
+        android:label="fragment_percentage"
+        tools:layout="@layout/fragment_percentage" >
+        <action
+            android:id="@+id/action_percentage_to_pieChartFragment2"
+            app:destination="@id/pieChartFragment2" />
+    </fragment>
+</navigation>

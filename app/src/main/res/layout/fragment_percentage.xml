@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".percentage">
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="492dp"
+        android:text="save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtbuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Compras"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <EditText
+        android:id="@+id/txtbuy2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Casa"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtbuy"
+        app:layout_constraintVertical_bias="0.121" />
+
+    <EditText
+        android:id="@+id/txtelec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Electronicos"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtbuy2"
+        app:layout_constraintVertical_bias="0.162" />
+
+    <EditText
+        android:id="@+id/txtelec2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Alimentación"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtelec"
+        app:layout_constraintVertical_bias="0.27" />
+
+    <EditText
+        android:id="@+id/txtelec3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Educación"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtelec2"
+        app:layout_constraintVertical_bias="0.54" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Compras"
+        app:layout_constraintBottom_toTopOf="@+id/txtbuy"
+        app:layout_constraintEnd_toEndOf="@+id/txtbuy"
+        app:layout_constraintStart_toStartOf="@+id/txtbuy"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Casa"
+        app:layout_constraintBottom_toTopOf="@+id/txtbuy2"
+        app:layout_constraintEnd_toEndOf="@+id/txtbuy2"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/txtbuy2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.897" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Electronicos"
+        app:layout_constraintBottom_toTopOf="@+id/txtelec"
+        app:layout_constraintEnd_toEndOf="@+id/txtelec"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/txtelec"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.948" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Alimentos"
+        app:layout_constraintBottom_toTopOf="@+id/txtelec2"
+        app:layout_constraintEnd_toEndOf="@+id/txtelec2"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/txtelec2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.971" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Educación"
+        app:layout_constraintBottom_toTopOf="@+id/txtelec3"
+        app:layout_constraintEnd_toEndOf="@+id/txtelec3"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/txtelec3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.971" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
