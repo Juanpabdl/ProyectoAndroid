@@ -19,5 +19,18 @@
         android:id="@+id/agregarGastoFragment"
         android:name="com.example.administratec.AgregarGastoFragment"
         android:label="fragment_agregar_gasto"
-        tools:layout="@layout/fragment_agregar_gasto" />
+        tools:layout="@layout/fragment_agregar_gasto" >
+        <action
+            android:id="@+id/action_agregarGastoFragment_to_llenarGastoFragment"
+            app:destination="@id/llenarGastoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/llenarGastoFragment"
+        android:name="com.example.administratec.LlenarGastoFragment"
+        android:label="fragment_llenar_gasto"
+        tools:layout="@layout/fragment_llenar_gasto" >
+        <action
+            android:id="@+id/action_llenarGastoFragment_to_agregarGastoFragment"
+            app:destination="@id/agregarGastoFragment" />
+    </fragment>
 </navigation>
