@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.administratec.databinding.FragmentPieChartBinding
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,9 +27,15 @@ class PieChartFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private val viewModel : PercentagesViewModel by activityViewModels()
+    //private val viewModel : PercentagesViewModel by activityViewModels()
     private var _binding: FragmentPieChartBinding? = null
     private val binding get() =  _binding!!
+
+    private val viewModel: GastoViewModel by activityViewModels{
+        GastoViewModelFactory(
+            (activity?.application as GastosApp).database.gastosDao()
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +57,13 @@ class PieChartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        lifecycleScope.launch {
+            val adapter = Adapter(viewModel.obtenerGastos())
+            binding.rvGastos.adapter = adapter
+            binding.rvGastos.layoutManager = LinearLayoutManager(activity)
+        }
+
         binding.btnChange.setOnClickListener(){
             Navigation.findNavController(view).navigate(R.id.action_pieChartFragment_to_percentage2)
         }

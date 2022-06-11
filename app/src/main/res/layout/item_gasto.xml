@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="6dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/textViewFecha"
+            android:layout_width="404dp"
+            android:layout_height="34dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="Fecha de gasto"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewConcepto"
+            android:layout_width="89dp"
+            android:layout_height="42dp"
+            android:gravity="center"
+            android:text="Concepto: "
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewDesc"
+            app:layout_constraintEnd_toStartOf="@+id/textViewDesc"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewDesc"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textViewDesc"
+            android:layout_width="313dp"
+            android:layout_height="43dp"
+            android:text="Descripcion del concepto"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewConcepto"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFecha" />
+
+        <TextView
+            android:id="@+id/textViewCosto"
+            android:layout_width="80dp"
+            android:layout_height="34dp"
+            android:gravity="center"
+            android:text="Costo"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewConcepto" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
