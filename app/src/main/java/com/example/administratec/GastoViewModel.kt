@@ -8,6 +8,8 @@ class GastoViewModel(private val gastoDao: GastosDao): ViewModel() {
     suspend fun obtenerGastos() = gastoDao.obtenerGastos()
 
     suspend fun agregarGasto(gasto: Gasto) = gastoDao.agregarGasto(gasto)
+
+    suspend fun eliminarGasto(gasto:Gasto) = gastoDao.eliminaGasto(gasto)
 }
 
 class GastoViewModelFactory(private val gastoDao: GastosDao): ViewModelProvider.Factory{
