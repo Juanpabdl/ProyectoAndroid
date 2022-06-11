@@ -7,6 +7,8 @@ class GastoViewModel(private val gastoDao: GastosDao): ViewModel() {
 
     suspend fun obtenerGastos() = gastoDao.obtenerGastos()
 
+    suspend fun obtenerGastosPorCategoria(categoria: String) = gastoDao.obtenerGastosPorCategoria(categoria)
+
     suspend fun agregarGasto(gasto: Gasto) = gastoDao.agregarGasto(gasto)
 
     suspend fun eliminarGasto(gasto:Gasto) = gastoDao.eliminaGasto(gasto)

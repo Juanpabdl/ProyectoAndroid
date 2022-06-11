@@ -9,6 +9,9 @@ import androidx.room.Query
 interface GastosDao {
     @Query("SELECT * FROM gasto")
     suspend fun obtenerGastos(): List<Gasto>
+
+    @Query("SELECT * FROM gasto WHERE categoria = :categoria")
+    suspend fun obtenerGastosPorCategoria(categoria: String): List<Gasto>
 /*
     @Query("SELECT * FROM gasto WHERE fecha")
     suspend fun obtenerGatosSemanales(): List<Gasto>
