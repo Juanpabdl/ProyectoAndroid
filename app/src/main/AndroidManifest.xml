@@ -11,22 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AdministraTec">
         <activity
+            android:name=".ConfigurationActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistroActivity0"
             android:exported="false" />
         <activity
             android:name=".Grafica_Gastos_Recomendaciones"
             android:exported="false" />
         <activity
-            android:name=".RegistroActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".RegistroActivity1"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StartActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

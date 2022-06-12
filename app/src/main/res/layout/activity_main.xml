@@ -18,7 +18,7 @@
 
     <Button
         android:id="@+id/buttonInicio"
-        android:backgroundTint="#BA87BD"
+        android:backgroundTint="@color/lila"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
         android:text="Registrarse"
-        android:textColor="@color/black"
+        android:textColor="@color/lilaDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

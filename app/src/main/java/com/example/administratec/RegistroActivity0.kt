@@ -15,7 +15,7 @@ class RegistroActivity0 : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonRegistro.setOnClickListener {
-            val intent: Intent = Intent(this, RegistroActivity1::class.java)
+            val intent: Intent = Intent(this, ConfigurationActivity::class.java)
             startActivity(intent)
         }
 

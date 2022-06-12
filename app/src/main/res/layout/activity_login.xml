@@ -77,7 +77,7 @@
 
     <Button
         android:id="@+id/buttonLogin"
-        android:backgroundTint="#BA87BD"
+        android:backgroundTint="@color/lila"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
