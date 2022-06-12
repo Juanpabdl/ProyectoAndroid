@@ -4,13 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroActivity2">
+    tools:context=".ConfigurationActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Ingrese presupuesto a seguir"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="256dp"
+        android:layout_height="56dp"
+        android:hint="Cual es su presupuesto?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:lines="2"
         android:text="Seleccione tiempo de seguimiento para el presupuesto"
@@ -18,11 +46,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textField" />
 
     <RadioGroup
-        android:layout_width="214dp"
-        android:layout_height="288dp"
+        android:layout_width="207dp"
+        android:layout_height="244dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,39 +86,32 @@
             android:layout_height="wrap_content"
             android:text="6 meses" />
 
-        <RadioButton
-            android:id="@+id/radioButton6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="1 año" />
     </RadioGroup>
 
     <Button
-        android:id="@+id/buttonRegresar"
+        android:id="@+id/buttonSalir"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
-        android:text="Regresar"
+        android:text="Salir"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonTerminar"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGuardar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonTerminar"
+        android:id="@+id/buttonGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Terminar"
+        android:text="Guardar"
         android:backgroundTint="#6E6969"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonRegresar"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSalir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonRegresar"
-        app:layout_constraintTop_toTopOf="@+id/buttonRegresar"
+        app:layout_constraintStart_toEndOf="@+id/buttonSalir"
+        app:layout_constraintTop_toTopOf="@+id/buttonSalir"
         app:layout_constraintVertical_bias="1.0" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
