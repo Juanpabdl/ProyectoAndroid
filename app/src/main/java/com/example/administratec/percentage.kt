@@ -264,7 +264,8 @@ class percentage : Fragment() {
                 viewModel.changecompra(buy,buyh,buye,buya,buyed)
                 Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
 
-            }else {
+            }else if(binding.txtbuy.text != null && binding.txtbuy2 != null && binding.txtelec.text != null &&
+                binding.txtelec2.text != null && binding.txtelec3.text != null){
                 val buy = binding.txtbuy.text.toString().toInt()
                 val buyh = binding.txtbuy2.text.toString().toInt()
                 val buye = binding.txtelec.text.toString().toInt()
@@ -273,9 +274,9 @@ class percentage : Fragment() {
                 if(buy+buyh+buye+buya+buyed > 100){
                     Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
                     Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
+                }else {
                     viewModel.changecompra(buy,buyh,buye,buya,buyed)
+                    Toast.makeText(activity,"Porcentajes aceptados", Toast.LENGTH_SHORT).show()
                     Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
                 }
             }
