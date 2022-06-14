@@ -1,5 +1,6 @@
 package com.example.administratec
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -48,11 +49,7 @@ class percentage : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.txtbuy.hint = viewModel.comprap.toString()
-        binding.txtbuy2.hint = viewModel.casap .toString()
-        binding.txtelec.hint = viewModel.elecp.toString()
-        binding.txtelec2.hint = viewModel.alimp.toString()
-        binding.txtelec3.hint = viewModel.edup.toString()
+        getdatas()
 
         binding.btnSave.setOnClickListener(){
             if(binding.txtbuy.text == null){
@@ -275,7 +272,15 @@ class percentage : Fragment() {
                     Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
                     Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
                 }else {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
+                    val preferences = this.requireActivity().getPreferences(Context.MODE_PRIVATE)
+                    with(preferences.edit()){
+                        putInt("compras_key",buy)
+                        putInt("casa_key",buyh)
+                        putInt("electronicos_key",buye)
+                        putInt("alimentacion_key",buya)
+                        putInt("educacion_key",buyed)
+                        apply()
+                    }
                     Toast.makeText(activity,"Porcentajes aceptados", Toast.LENGTH_SHORT).show()
                     Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
                 }
@@ -285,6 +290,20 @@ class percentage : Fragment() {
 
 
         }
+    }
+
+    fun getdatas(){
+        val preferences = this.requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val hcompras = preferences.getInt("compras_key",20)
+        val hcasa = preferences.getInt("compras_key",25)
+        val helectronicos = preferences.getInt("compras_key",10)
+        val halimentacion = preferences.getInt("compras_key",25)
+        val heducacion = preferences.getInt("compras_key",20)
+        binding.txtbuy.hint = hcompras.toString()
+        binding.txtbuy2.hint = hcasa.toString()
+        binding.txtelec.hint = helectronicos.toString()
+        binding.txtelec2.hint = halimentacion.toString()
+        binding.txtelec3.hint = heducacion.toString()
     }
     companion object {
         /**

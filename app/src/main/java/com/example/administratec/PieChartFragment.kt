@@ -1,5 +1,6 @@
 package com.example.administratec
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -88,16 +89,23 @@ class PieChartFragment : Fragment() {
     }
     fun setBArChart2() {
 
-        var com = viewModel.comprap.toFloat() / 100
-        var cas = viewModel.casap.toFloat() / 100
-        var ele = viewModel.elecp.toFloat() / 100
-        var ali = viewModel.alimp.toFloat() / 100
-        var edu = viewModel.edup.toFloat() / 100
-        var coms = viewModel.compras.toString()
-        var cass = viewModel.casa.toString()
-        var eles = viewModel.electronicos.toString()
-        var alis = viewModel.alimentos.toString()
-        var edus = viewModel.educacion.toString()
+        val preferences = this.requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val hcompras = preferences.getInt("compras_key",20)
+        val hcasa = preferences.getInt("compras_key",25)
+        val helectronicos = preferences.getInt("compras_key",10)
+        val halimentacion = preferences.getInt("compras_key",25)
+        val heducacion = preferences.getInt("compras_key",20)
+
+        var com = hcompras.toFloat() / 100
+        var cas = hcasa.toFloat() / 100
+        var ele = helectronicos.toFloat() / 100
+        var ali = halimentacion.toFloat() / 100
+        var edu = heducacion.toFloat() / 100
+        var coms = "Compras"
+        var cass = "Casa"
+        var eles = "Electronica"
+        var alis = "Alimentos"
+        var edus = "Educacion"
 
         val entries: ArrayList<PieEntry> = ArrayList()
             entries.add(PieEntry(com, coms))
