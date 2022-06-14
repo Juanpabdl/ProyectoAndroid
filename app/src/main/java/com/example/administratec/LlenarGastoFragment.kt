@@ -5,9 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.SpinnerAdapter
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
-import com.example.administratec.databinding.FragmentAgregarGastoBinding
 import com.example.administratec.databinding.FragmentLlenarGastoBinding
+import kotlinx.coroutines.launch
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +34,13 @@ class LlenarGastoFragment : Fragment() {
     private var _binding : FragmentLlenarGastoBinding? = null
     private val binding get() = _binding!!
 
+    private var category : String? = null
+    private val viewModel: GastoViewModel by activityViewModels {
+        GastoViewModelFactory(
+            (activity?.application as GastosApp).database.gastosDao()
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -42,14 +56,52 @@ class LlenarGastoFragment : Fragment() {
         //  Binding para Fragmentos
         _binding = FragmentLlenarGastoBinding.inflate(inflater, container, false)
         val view = binding.root
+       val categoryList = arrayOf("Compras","Casa","Electronicos","Alimentacion","Educacion")
+
+        val spinner = binding.spinner
+        val adapter = activity?.let { ArrayAdapter(it.applicationContext, android.R.layout.simple_spinner_item, categoryList) } as SpinnerAdapter
+        spinner.adapter = adapter
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {/*
+            Toast.makeText(
+                this@LlenarGastoFragment,
+                "Seleccionado: " + categoryList[position],
+                Toast.LENGTH_SHORT
+            ).show()*/
+                category = categoryList[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Code to perform some action when nothing is selected
+                category = categoryList[0]
+            }
+        }
+
 
         return view
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonGuardar.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_llenarGastoFragment_to_agregarGastoFragment)
+            val categoria = category!!
+            val concepto = binding.editTextConcepto.text.toString()
+            val cantidad = binding.editTextCantidad.text.toString().toDouble()
+            val fecha = Date()
+
+            lifecycleScope.launch {
+                viewModel.agregarGasto(Gasto(0,fecha,cantidad,concepto,categoria))
+            }
+
+            Toast.makeText(activity,"Gasto tipo " + categoria + " creado",Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -10,31 +10,41 @@
         android:id="@+id/textView_tipoGasto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="278dp"
         android:text="@string/tipo_gasto"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Tipo Gasto" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="224dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_tipoGasto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_tipoGasto"
+        app:layout_constraintTop_toTopOf="@+id/textView_tipoGasto" />
 
     <EditText
         android:id="@+id/editText_cantidad"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="50dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/cantidad"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_tipoGasto"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_tipoGasto" />
 
     <TextView
         android:id="@+id/textView_Concepto"
@@ -56,23 +66,23 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="50dp"
+        android:autofillHints=""
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/text_input"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Concepto"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_Concepto" />
 
     <Button
         android:id="@+id/button_guardar"
         android:layout_width="wrap_content"
-        android:backgroundTint="@color/lila"
         android:layout_height="wrap_content"
         android:layout_marginStart="153dp"
         android:layout_marginTop="42dp"
         android:layout_marginEnd="153dp"
+        android:backgroundTint="@color/lila"
         android:text="@string/guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
