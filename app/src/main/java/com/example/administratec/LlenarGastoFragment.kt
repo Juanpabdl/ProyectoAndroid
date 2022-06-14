@@ -1,14 +1,19 @@
 package com.example.administratec
 
+import android.content.Context
+import android.content.Context.*
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SpinnerAdapter
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
@@ -95,6 +100,7 @@ class LlenarGastoFragment : Fragment() {
             val categoria = category!!
             val concepto = binding.editTextConcepto.text.toString()
             val cantidad = binding.editTextCantidad.text.toString().toDouble()
+
             val fecha = Date()
 
             lifecycleScope.launch {
@@ -103,6 +109,29 @@ class LlenarGastoFragment : Fragment() {
 
             Toast.makeText(activity,"Gasto tipo " + categoria + " creado",Toast.LENGTH_SHORT).show()
         }
+
+        binding.editTextCantidad.setOnKeyListener { view, keyCode, _ ->
+            handleKeyEvent(
+                view,
+                keyCode
+            ) }
+
+        binding.editTextConcepto.setOnKeyListener { view, keyCode, _ ->
+            handleKeyEvent(
+                view,
+                keyCode
+            ) }
+    }
+
+    private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            //  Hide the keyboard
+            val inputMethodManager =
+                context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+            return true
+        }
+        return false
     }
 
     companion object {

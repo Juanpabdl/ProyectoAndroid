@@ -1,5 +1,6 @@
 package com.example.administratec
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,13 @@ class Adapter(var gasto: List<Gasto>): RecyclerView.Adapter<Adapter.ViewHolder>(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.apply {
             textViewFecha.text = gasto[position].fecha.toString()
+            when (gasto[position].categoria) {
+                "Compras" -> textViewFecha.setTextColor(Color.parseColor("#EC4A18"))
+                "Casa" -> textViewFecha.setTextColor(Color.parseColor("#0F3AD3"))
+                "Electronicos" -> textViewFecha.setTextColor(Color.parseColor("#FFC107"))
+                "Alimentacion" -> textViewFecha.setTextColor(Color.parseColor("#2196F3"))
+                "Educacion" -> textViewFecha.setTextColor(Color.parseColor("#4CAF50"))
+            }
             textViewDesc.text = gasto[position].concepto
             textViewCosto.text = "$" + gasto[position].costo.toString()
         }
