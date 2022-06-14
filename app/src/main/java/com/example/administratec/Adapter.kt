@@ -21,7 +21,7 @@ class Adapter(var gasto: List<Gasto>): RecyclerView.Adapter<Adapter.ViewHolder>(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.apply {
             val fecha = gasto[position].fecha
-            val spf = SimpleDateFormat("dd MM yyyy")
+            val spf = SimpleDateFormat("dd-MM-yyyy")
             val fecha_good = spf.format(fecha)
             textViewFecha.text = fecha_good
             when (gasto[position].categoria) {
