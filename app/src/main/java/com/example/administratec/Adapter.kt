@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.administratec.databinding.ItemGastoBinding
+import java.text.SimpleDateFormat
 
 class Adapter(var gasto: List<Gasto>): RecyclerView.Adapter<Adapter.ViewHolder>(){
     class ViewHolder (val binding : ItemGastoBinding): RecyclerView.ViewHolder(binding.root){
@@ -19,7 +20,10 @@ class Adapter(var gasto: List<Gasto>): RecyclerView.Adapter<Adapter.ViewHolder>(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.apply {
-            textViewFecha.text = gasto[position].fecha.toString()
+            val fecha = gasto[position].fecha.toString()
+            val spf = SimpleDateFormat("dd MMM yyyy")
+            val fecha_good = spf.format(fecha)
+            textViewFecha.text = fecha_good
             when (gasto[position].categoria) {
                 "Compras" -> textViewFecha.setTextColor(Color.parseColor("#EC4A18"))
                 "Casa" -> textViewFecha.setTextColor(Color.parseColor("#0F3AD3"))
