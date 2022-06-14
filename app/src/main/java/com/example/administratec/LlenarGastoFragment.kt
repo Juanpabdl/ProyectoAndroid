@@ -64,7 +64,7 @@ class LlenarGastoFragment : Fragment() {
        val categoryList = arrayOf("Compras","Casa","Electronicos","Alimentacion","Educacion")
 
         val spinner = binding.spinner
-        val adapter = activity?.let { ArrayAdapter(it.applicationContext, android.R.layout.simple_spinner_item, categoryList) } as SpinnerAdapter
+        val adapter = activity?.let { ArrayAdapter(it.applicationContext, android.R.layout.simple_spinner_dropdown_item, categoryList) } as SpinnerAdapter
         spinner.adapter = adapter
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

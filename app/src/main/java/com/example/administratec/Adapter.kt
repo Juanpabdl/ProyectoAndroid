@@ -21,16 +21,17 @@ class Adapter(var gasto: List<Gasto>): RecyclerView.Adapter<Adapter.ViewHolder>(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.apply {
             val fecha = gasto[position].fecha
-            val spf = SimpleDateFormat("dd-MM-yyyy")
+            val spf = SimpleDateFormat("EEE, dd-MM-yyyy")
             val fecha_good = spf.format(fecha)
             textViewFecha.text = fecha_good
             when (gasto[position].categoria) {
-                "Compras" -> textViewFecha.setTextColor(Color.parseColor("#EC4A18"))
-                "Casa" -> textViewFecha.setTextColor(Color.parseColor("#0F3AD3"))
-                "Electronicos" -> textViewFecha.setTextColor(Color.parseColor("#FFC107"))
-                "Alimentacion" -> textViewFecha.setTextColor(Color.parseColor("#2196F3"))
-                "Educacion" -> textViewFecha.setTextColor(Color.parseColor("#4CAF50"))
+                "Compras" -> textViewFecha.setBackgroundColor(Color.parseColor("#EC4A18"))
+                "Casa" -> textViewFecha.setBackgroundColor(Color.parseColor("#0F3AD3"))
+                "Electronicos" -> textViewFecha.setBackgroundColor(Color.parseColor("#FFC107"))
+                "Alimentacion" -> textViewFecha.setBackgroundColor(Color.parseColor("#2196F3"))
+                "Educacion" -> textViewFecha.setBackgroundColor(Color.parseColor("#4CAF50"))
             }
+            textViewFecha.setTextColor((Color.parseColor(("#FFFFFF"))))
             textViewDesc.text = gasto[position].concepto
             textViewCosto.text = "$" + gasto[position].costo.toString()
         }
