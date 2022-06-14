@@ -1,5 +1,6 @@
 package com.example.administratec
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.administratec.databinding.FragmentPieChartBinding
+import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.PercentFormatter
+import com.github.mikephil.charting.utils.ColorTemplate
 import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
@@ -29,6 +37,7 @@ class PieChartFragment : Fragment() {
 
     //private val viewModel : PercentagesViewModel by activityViewModels()
     private var _binding: FragmentPieChartBinding? = null
+    private val viewModelStore : PercentagesViewModel by activityViewModels()
     private val binding get() =  _binding!!
 
     private val viewModel: GastoViewModel by activityViewModels{
@@ -63,12 +72,77 @@ class PieChartFragment : Fragment() {
             binding.rvGastos.adapter = adapter
             binding.rvGastos.layoutManager = LinearLayoutManager(activity)
         }
-
+        setuppie()
+        setBArChart2()
         binding.btnChange.setOnClickListener(){
             Navigation.findNavController(view).navigate(R.id.action_pieChartFragment_to_percentage2)
         }
     }
+    fun setuppie(){
 
+        binding.PieChart.setDrawHoleEnabled(true)
+        binding.PieChart.setUsePercentValues(true)
+        binding.PieChart.setCenterText("Porcentaje por Categoria")
+        binding.PieChart.getDescription().setEnabled(false)
+
+        val l: Legend = binding.PieChart.getLegend()
+        l.verticalAlignment = Legend.LegendVerticalAlignment.TOP
+        l.horizontalAlignment = Legend.LegendHorizontalAlignment.RIGHT
+        l.orientation = Legend.LegendOrientation.VERTICAL
+        l.setDrawInside(false)
+        l.isEnabled = true
+    }
+    fun setBArChart2() {
+
+        val preferences = this.requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val hcompras = preferences.getInt("compras_key",20)
+        val hcasa = preferences.getInt("compras_key",25)
+        val helectronicos = preferences.getInt("compras_key",10)
+        val halimentacion = preferences.getInt("compras_key",25)
+        val heducacion = preferences.getInt("compras_key",20)
+
+        var com = hcompras.toFloat() / 100
+        var cas = hcasa.toFloat() / 100
+        var ele = helectronicos.toFloat() / 100
+        var ali = halimentacion.toFloat() / 100
+        var edu = heducacion.toFloat() / 100
+        var coms = "Compras"
+        var cass = "Casa"
+        var eles = "Electronica"
+        var alis = "Alimentos"
+        var edus = "Educacion"
+
+        val entries: ArrayList<PieEntry> = ArrayList()
+        entries.add(PieEntry(com, coms))
+        entries.add(PieEntry(cas, cass))
+        entries.add(PieEntry(ele, eles))
+        entries.add(PieEntry(ali, alis))
+        entries.add(PieEntry(edu, edus))
+
+        val colors: ArrayList<Int> = ArrayList()
+        for (color in ColorTemplate.MATERIAL_COLORS) {
+            colors.add(color)
+        }
+
+        for (color in ColorTemplate.VORDIPLOM_COLORS) {
+            colors.add(color)
+        }
+
+        val dataSet = PieDataSet(entries, "Categorias de gastos")
+        dataSet.colors = colors
+
+        val data = PieData(dataSet)
+        data.setDrawValues(true)
+        data.setValueFormatter(PercentFormatter(binding.PieChart))
+        data.setValueTextSize(12f)
+
+        binding.PieChart.setData(data)
+        binding.PieChart.invalidate()
+
+        binding.PieChart.animateY(1400, Easing.EaseInOutQuad)
+
+
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
