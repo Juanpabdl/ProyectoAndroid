@@ -8,13 +8,14 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="188dp"
-        android:layout_height="190dp"
+        android:layout_width="221dp"
+        android:layout_height="223dp"
         android:layout_marginTop="53dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/administratec_logo"
+        tools:srcCompat="@drawable/administratec_logo" />
 
     <Button
         android:id="@+id/buttonInicio"
@@ -22,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="Iniciar Sesion"
+        android:text="Iniciar"
         app:layout_constraintBottom_toTopOf="@+id/buttonRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -33,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
-        android:text="Registrarse"
+        android:text="Configuración"
         android:textColor="@color/lilaDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
