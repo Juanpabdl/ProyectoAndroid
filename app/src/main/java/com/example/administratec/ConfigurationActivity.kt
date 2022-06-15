@@ -1,5 +1,6 @@
 package com.example.administratec
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,13 @@ class ConfigurationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonGuardar.setOnClickListener {
+            //Guardar como variable de la aplicación el presoupuesto deseado
+            val presupuesto = binding.editPresupuesto.text.toString().toFloat()
+            val preferences = this.getPreferences(Context.MODE_PRIVATE)
+            with(preferences.edit()){
+                putFloat("presupuesto_key", presupuesto)
+                apply()
+            }
             val intent: Intent = Intent(this, Grafica_Gastos_Recomendaciones::class.java)
             startActivity(intent)
         }
