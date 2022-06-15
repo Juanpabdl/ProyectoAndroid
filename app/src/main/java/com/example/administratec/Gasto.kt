@@ -9,7 +9,7 @@ import java.util.*
 data class Gasto(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "fecha") val fecha: Date,
-    @ColumnInfo(name = "costo") val costo: Long,
+    @ColumnInfo(name = "costo") val costo: Double,
     @ColumnInfo(name = "concepto") val concepto: String,
     @ColumnInfo(name = "categoria") val categoria: String
     )

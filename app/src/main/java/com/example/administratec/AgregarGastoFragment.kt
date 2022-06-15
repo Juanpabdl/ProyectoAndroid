@@ -48,23 +48,7 @@ class AgregarGastoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.buttonCompras.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_agregarGastoFragment_to_llenarGastoFragment)
-        }
-
-        binding.buttonCasa.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_agregarGastoFragment_to_llenarGastoFragment)
-        }
-
-        binding.buttonElectronicos.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_agregarGastoFragment_to_llenarGastoFragment)
-        }
-
-        binding.buttonAlimentacion.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_agregarGastoFragment_to_llenarGastoFragment)
-        }
-
-        binding.buttonEducacion.setOnClickListener {
+        binding.buttonAgregar.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_agregarGastoFragment_to_llenarGastoFragment)
         }
     }

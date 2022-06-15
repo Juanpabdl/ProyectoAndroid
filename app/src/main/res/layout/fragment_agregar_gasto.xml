@@ -6,77 +6,188 @@
     android:layout_height="match_parent"
     tools:context=".AgregarGastoFragment">
 
-
-    <Button
-        android:id="@+id/button_electronicos"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:backgroundTint="#FFC107"
-        android:text="@string/electr_nicos"
-        app:layout_constraintBottom_toTopOf="@+id/button_alimentacion"
+        android:layout_marginTop="32dp"
+        android:text="Tipos de gastos"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_casa" />
+        app:layout_constraintTop_toBottomOf="@+id/button_Agregar" />
 
     <Button
-        android:id="@+id/button_compras"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
-        android:backgroundTint="#EC4A18"
-        android:text="@string/compras"
-        app:layout_constraintBottom_toTopOf="@+id/button_casa"
+        android:id="@+id/button_Agregar"
+        android:layout_width="274dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/lilaDark"
+        android:text="Agregar Gasto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_casa"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:backgroundTint="#0F3AD3"
-        android:text="@string/casa"
-        app:layout_constraintBottom_toTopOf="@+id/button_electronicos"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="322dp"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_compras" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8">
 
-    <Button
-        android:id="@+id/button_educacion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:backgroundTint="#4CAF50"
-        android:text="@string/educaci_n"
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="94dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#EC4A18"
+            android:gravity="center"
+            android:text="Compras"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="173dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Articulos generales" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="319dp"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="94dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0F3AD3"
+            android:gravity="center"
+            android:text="Casa"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="173dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Articulos para el hogar (cocina, baños, comedor, etc.)" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="317dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="94dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFC107"
+            android:gravity="center"
+            android:text="Electronicos"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="173dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Dispositivos electronicos de uso personal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="94dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#2196F3"
+            android:gravity="center"
+            android:text="Comida"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="173dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Articulos de despensa o comida para llevar" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="319dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="49dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_alimentacion" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
-    <Button
-        android:id="@+id/button_alimentacion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:backgroundTint="#2196F3"
-        android:text="@string/alimentaci_n"
-        app:layout_constraintBottom_toTopOf="@+id/button_educacion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_electronicos" />
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="94dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#4CAF50"
+            android:gravity="center"
+            android:text="Educacion"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="173dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Libros y otros materiales de aprendizaje" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
