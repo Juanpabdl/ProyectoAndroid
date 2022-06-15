@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonRegistro.setOnClickListener {
-            val intent: Intent = Intent (this, RegistroActivity0::class.java)
+            val intent: Intent = Intent (this, ConfigurationActivity::class.java)
             startActivity(intent)
         }
 

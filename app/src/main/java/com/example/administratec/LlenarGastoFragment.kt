@@ -1,13 +1,25 @@
 package com.example.administratec
 
+import android.content.Context
+import android.content.Context.*
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.SpinnerAdapter
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
-import com.example.administratec.databinding.FragmentAgregarGastoBinding
 import com.example.administratec.databinding.FragmentLlenarGastoBinding
+import kotlinx.coroutines.launch
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +39,13 @@ class LlenarGastoFragment : Fragment() {
     private var _binding : FragmentLlenarGastoBinding? = null
     private val binding get() = _binding!!
 
+    private var category : String? = null
+    private val viewModel: GastoViewModel by activityViewModels {
+        GastoViewModelFactory(
+            (activity?.application as GastosApp).database.gastosDao()
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -42,15 +61,81 @@ class LlenarGastoFragment : Fragment() {
         //  Binding para Fragmentos
         _binding = FragmentLlenarGastoBinding.inflate(inflater, container, false)
         val view = binding.root
+       val categoryList = arrayOf("Compras","Casa","Electronicos","Alimentacion","Educacion")
+
+        val spinner = binding.spinner
+        val adapter = activity?.let { ArrayAdapter(it.applicationContext, android.R.layout.simple_spinner_dropdown_item, categoryList) } as SpinnerAdapter
+        spinner.adapter = adapter
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {/*
+            Toast.makeText(
+                this@LlenarGastoFragment,
+                "Seleccionado: " + categoryList[position],
+                Toast.LENGTH_SHORT
+            ).show()*/
+                category = categoryList[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Code to perform some action when nothing is selected
+                category = categoryList[0]
+            }
+        }
+
 
         return view
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonGuardar.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_llenarGastoFragment_to_agregarGastoFragment)
+
+            val categoria = category!!
+            val concepto = binding.editTextConcepto.text.toString()
+            val cantidad = binding.editTextCantidad.text.toString().toDouble()
+
+            val fecha = Date()
+            if(concepto.isEmpty() || binding.editTextCantidad.text.toString().isEmpty()){
+                Toast.makeText(activity,"Por favor, llene todos los campos",Toast.LENGTH_SHORT).show()
+            } else {
+                lifecycleScope.launch {
+                    viewModel.agregarGasto(Gasto(0,fecha,cantidad,concepto,categoria))
+                }
+
+                Toast.makeText(activity,"Gasto de " + categoria + " guardado",Toast.LENGTH_SHORT).show()
+                Navigation.findNavController(view).navigate(R.id.action_llenarGastoFragment_to_agregarGastoFragment)
+            }
         }
+
+        binding.editTextCantidad.setOnKeyListener { view, keyCode, _ ->
+            handleKeyEvent(
+                view,
+                keyCode
+            ) }
+
+        binding.editTextConcepto.setOnKeyListener { view, keyCode, _ ->
+            handleKeyEvent(
+                view,
+                keyCode
+            ) }
+    }
+
+    private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            //  Hide the keyboard
+            val inputMethodManager =
+                context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+            return true
+        }
+        return false
     }
 
     companion object {

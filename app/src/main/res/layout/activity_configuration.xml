@@ -4,59 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroActivity1">
+    tools:context=".ConfigurationActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_width="266dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="116dp"
         android:text="Ingrese presupuesto a seguir"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textField"
-        android:layout_width="293dp"
-        android:layout_height="59dp"
+        android:layout_width="237dp"
+        android:layout_height="60dp"
         android:hint="Cual es su presupuesto?"
-        app:layout_constraintBottom_toTopOf="@+id/buttonRegresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_presupuesto"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:inputType="numberDecimal"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <Button
-        android:id="@+id/buttonRegresar"
+        android:id="@+id/buttonSalir"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:text="Regresar"
-        android:textColor="@color/black"
+        android:layout_marginBottom="112dp"
+        android:text="Salir"
+        android:textColor="@color/lilaDark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSeguir"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGuardar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonSeguir"
+        android:id="@+id/buttonGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Siguiente"
-        android:backgroundTint="#6E6969"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonRegresar"
+        android:text="Guardar"
+        android:backgroundTint="@color/lila"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSalir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonRegresar"
-        app:layout_constraintTop_toTopOf="@+id/buttonRegresar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/buttonSalir"
+        app:layout_constraintTop_toTopOf="@+id/buttonSalir"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
