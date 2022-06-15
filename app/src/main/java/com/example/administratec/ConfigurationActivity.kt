@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.administratec.databinding.ActivityConfigurationBinding
-import com.example.administratec.databinding.ActivityRegistro0Binding
+//import com.example.administratec.databinding.ActivityRegistro0Binding
 
 class ConfigurationActivity : AppCompatActivity() {
     lateinit var binding: ActivityConfigurationBinding
@@ -20,7 +20,7 @@ class ConfigurationActivity : AppCompatActivity() {
         binding.buttonGuardar.setOnClickListener {
             //Guardar como variable de la aplicación el presoupuesto deseado
             if(binding.editPresupuesto.text.toString().isEmpty()){
-                Toast.makeText(this,"Por favor, definir presupuesto", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Por favor, defina el presupuesto", Toast.LENGTH_SHORT).show()
             }else {
                 val presupuesto = binding.editPresupuesto.text.toString().toFloat()
                 val preferences = this.getPreferences(Context.MODE_PRIVATE)
