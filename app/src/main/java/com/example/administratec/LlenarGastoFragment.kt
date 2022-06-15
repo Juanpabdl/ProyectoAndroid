@@ -96,18 +96,22 @@ class LlenarGastoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonGuardar.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_llenarGastoFragment_to_agregarGastoFragment)
+
             val categoria = category!!
             val concepto = binding.editTextConcepto.text.toString()
             val cantidad = binding.editTextCantidad.text.toString().toDouble()
 
             val fecha = Date()
+            if(concepto.isEmpty() || binding.editTextCantidad.text.isEmpty()){
+                Toast.makeText(activity,"Por favor, llene todos los campos",Toast.LENGTH_SHORT).show()
+            } else {
+                lifecycleScope.launch {
+                    viewModel.agregarGasto(Gasto(0,fecha,cantidad,concepto,categoria))
+                }
 
-            lifecycleScope.launch {
-                viewModel.agregarGasto(Gasto(0,fecha,cantidad,concepto,categoria))
+                Toast.makeText(activity,"Gasto de " + categoria + " guardado",Toast.LENGTH_SHORT).show()
+                Navigation.findNavController(view).navigate(R.id.action_llenarGastoFragment_to_agregarGastoFragment)
             }
-
-            Toast.makeText(activity,"Gasto tipo " + categoria + " creado",Toast.LENGTH_SHORT).show()
         }
 
         binding.editTextCantidad.setOnKeyListener { view, keyCode, _ ->

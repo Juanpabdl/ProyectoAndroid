@@ -28,7 +28,7 @@ class Adapter(var gasto: List<Gasto>): RecyclerView.Adapter<Adapter.ViewHolder>(
                 "Compras" -> textViewFecha.setBackgroundColor(Color.parseColor("#EC4A18"))
                 "Casa" -> textViewFecha.setBackgroundColor(Color.parseColor("#0F3AD3"))
                 "Electronicos" -> textViewFecha.setBackgroundColor(Color.parseColor("#FFC107"))
-                "Alimentacion" -> textViewFecha.setBackgroundColor(Color.parseColor("#2196F3"))
+                "Alimentacion" -> textViewFecha.setBackgroundColor(Color.parseColor("#2196F3"))//"#2196F3"
                 "Educacion" -> textViewFecha.setBackgroundColor(Color.parseColor("#4CAF50"))
             }
             textViewFecha.setTextColor((Color.parseColor(("#FFFFFF"))))
