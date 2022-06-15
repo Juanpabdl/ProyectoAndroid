@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.example.administratec.databinding.FragmentPercentageBinding
 
@@ -25,7 +24,6 @@ class percentage : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private val viewModel : PercentagesViewModel by activityViewModels()
     private var _binding: FragmentPercentageBinding? = null
     private val binding get() =  _binding!!
 
@@ -51,260 +49,195 @@ class percentage : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         getdatas()
 
-        binding.btnSave.setOnClickListener(){
-            if(binding.txtbuy.text == null){
-                val buy = 20
-                val buyh = binding.txtbuy2.text.toString().toInt()
-                val buye = binding.txtelec.text.toString().toInt()
-                val buya = binding.txtelec2.text.toString().toInt()
-                val buyed = binding.txtelec.text.toString().toInt()
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if (binding.txtbuy.text == null && binding.txtbuy2 == null){
-                val buy = 20
-                val buyh = 20
-                val buye = binding.txtelec.text.toString().toInt()
-                val buya = binding.txtelec2.text.toString().toInt()
-                val buyed = binding.txtelec.text.toString().toInt()
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtbuy.text == null && binding.txtbuy2 == null && binding.txtelec.text == null){
-                val buy = 20
-                val buyh = 20
-                val buye = 20
-                val buya = binding.txtelec2.text.toString().toInt()
-                val buyed = binding.txtelec.text.toString().toInt()
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtbuy.text == null && binding.txtbuy2 == null && binding.txtelec.text == null &&
-                binding.txtelec2.text == null){
-                val buy = 20
-                val buyh = 20
-                val buye = 20
-                val buya = 20
-                val buyed = binding.txtelec.text.toString().toInt()
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtbuy2 == null) {
-                val buy = binding.txtbuy.text.toString().toInt()
-                val buyh = 20
-                val buye = binding.txtelec.text.toString().toInt()
-                val buya = binding.txtelec2.text.toString().toInt()
-                val buyed = binding.txtelec.text.toString().toInt()
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtbuy2 == null && binding.txtelec.text == null){
-                val buy = binding.txtbuy.text.toString().toInt()
-                val buyh = 20
-                val buye = 20
-                val buya = binding.txtelec2.text.toString().toInt()
-                val buyed = binding.txtelec.text.toString().toInt()
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtbuy2 == null && binding.txtelec.text == null &&
-                binding.txtelec2.text == null) {
-                val buy = binding.txtbuy.text.toString().toInt()
-                val buyh = 20
-                val buye = 20
-                val buya = 20
-                val buyed = binding.txtelec.text.toString().toInt()
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtbuy2 == null && binding.txtelec.text == null && binding.txtelec2.text == null && binding.txtelec3.text == null){
-                val buy = binding.txtbuy.text.toString().toInt()
-                val buyh = 20
-                val buye = 20
-                val buya = 20
-                val buyed = 20
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtelec.text == null){
-                val buy = binding.txtbuy.text.toString().toInt()
-                val buyh = binding.txtbuy2.text.toString().toInt()
-                val buye = 20
-                val buya = binding.txtelec2.text.toString().toInt()
-                val buyed = binding.txtelec.text.toString().toInt()
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtelec.text == null && binding.txtelec2.text == null){
-                val buy = binding.txtbuy.text.toString().toInt()
-                val buyh = binding.txtbuy2.text.toString().toInt()
-                val buye = 20
-                val buya = 20
-                val buyed = binding.txtelec.text.toString().toInt()
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtelec.text == null && binding.txtelec2.text == null && binding.txtelec3.text == null){
-                val buy = binding.txtbuy.text.toString().toInt()
-                val buyh = binding.txtbuy2.text.toString().toInt()
-                val buye = 20
-                val buya = 20
-                val buyed = 20
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtelec2.text == null){
-                val buy = binding.txtbuy.text.toString().toInt()
-                val buyh = binding.txtbuy2.text.toString().toInt()
-                val buye = binding.txtelec.text.toString().toInt()
-                val buya = 20
-                val buyed = binding.txtelec.text.toString().toInt()
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtelec2.text == null && binding.txtelec3.text == null){
-                val buy = binding.txtbuy.text.toString().toInt()
-                val buyh = binding.txtbuy2.text.toString().toInt()
-                val buye = binding.txtelec.text.toString().toInt()
-                val buya = 20
-                val buyed = 20
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
-            }else if(binding.txtelec3.text == null){
-                val buy = binding.txtbuy.text.toString().toInt()
-                val buyh = binding.txtbuy2.text.toString().toInt()
-                val buye = binding.txtelec.text.toString().toInt()
-                val buya = binding.txtelec2.text.toString().toInt()
-                val buyed = 20
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else
-                {
-                    viewModel.changecompra(buy,buyh,buye,buya,buyed)
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
+        binding.btnSave.setOnClickListener() {
+            val preferences = this.requireActivity().getPreferences(Context.MODE_PRIVATE)
+            var buyes = preferences.getInt("compras_key",20)
+            var buyc = preferences.getInt("casa_key",25)
+            var buyele = preferences.getInt("electronicos_key",15)
+            var buyali = preferences.getInt("alimentacion_key",20)
+            var buyedu = preferences.getInt("educacion_key",20)
 
-            } else if(binding.txtbuy.text == null && binding.txtbuy2 == null && binding.txtelec.text == null &&
-                binding.txtelec2.text == null && binding.txtelec3.text == null) {
-                val buy = 20
-                val buyh = 20
-                val buye = 20
-                val buya = 20
-                val buyed = 20
-                viewModel.changecompra(buy,buyh,buye,buya,buyed)
+            val msg: String = binding.txtbuy.text.toString()
+            val msg2: String = binding.txtbuy2.text.toString()
+            val msg3: String = binding.txtelec.text.toString()
+            val msg4: String = binding.txtelec2.text.toString()
+            val msg5: String = binding.txtelec3.text.toString()
+
+            if(msg.trim().isEmpty() && msg2.trim().isEmpty() && msg3.trim().isEmpty() && msg4.trim().isEmpty() && msg5.trim().isEmpty()){
+                Toast.makeText(activity, "Se necesitan valores para proceder", Toast.LENGTH_SHORT).show()
+
+            }else if(msg.trim().isEmpty() && msg2.trim().isEmpty() && msg3.trim().isEmpty() && msg4.trim().isEmpty()){
+                val buy = buyes
+                val buyh = buyc
+                val buye = buyele
+                val buya = buyali
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
                 Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
 
-            }else if(binding.txtbuy.text != null && binding.txtbuy2 != null && binding.txtelec.text != null &&
-                binding.txtelec2.text != null && binding.txtelec3.text != null){
-                val buy = binding.txtbuy.text.toString().toInt()
-                val buyh = binding.txtbuy2.text.toString().toInt()
-                val buye = binding.txtelec.text.toString().toInt()
-                val buya = binding.txtelec2.text.toString().toInt()
-                val buyed = binding.txtelec.text.toString().toInt()
-                if(buy+buyh+buye+buya+buyed > 100){
-                    Toast.makeText(activity,"Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }else {
-                    val preferences = this.requireActivity().getPreferences(Context.MODE_PRIVATE)
-                    with(preferences.edit()){
-                        putInt("compras_key",buy)
-                        putInt("casa_key",buyh)
-                        putInt("electronicos_key",buye)
-                        putInt("alimentacion_key",buya)
-                        putInt("educacion_key",buyed)
-                        apply()
-                    }
-                    Toast.makeText(activity,"Porcentajes aceptados", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
-                }
+            }else if(msg.trim().isEmpty() && msg2.trim().isEmpty() && msg3.trim().isEmpty()){
+                val buy = buyes
+                val buyh = buyc
+                val buye = buyele
+                val buya = msg4.toInt()
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg.trim().isEmpty() && msg2.trim().isEmpty()){
+                val buy = buyes
+                val buyh = buyc
+                val buye = msg3.toInt()
+                val buya = msg4.toInt()
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg.trim().isEmpty()){
+                val buy = buyes
+                val buyh = msg2.toInt()
+                val buye = msg3.toInt()
+                val buya = msg4.toInt()
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg.trim().isEmpty() && msg3.trim().isEmpty()){
+                val buy = buyes
+                val buyh = msg2.toInt()
+                val buye = buyele
+                val buya = msg4.toInt()
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg.trim().isEmpty() && msg3.trim().isEmpty() && msg4.trim().isEmpty()){
+                val buy = buyes
+                val buyh = msg2.toInt()
+                val buye = buyele
+                val buya = buyali
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg.trim().isEmpty() && msg3.trim().isEmpty() && msg4.trim().isEmpty() && msg5.trim().isEmpty()){
+                val buy = buyes
+                val buyh = msg2.toInt()
+                val buye = buyele
+                val buya = buyali
+                val buyed = buyedu
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg2.trim().isEmpty()){
+                val buy = msg.toInt()
+                val buyh = buyc
+                val buye = msg3.toInt()
+                val buya = msg4.toInt()
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg2.trim().isEmpty() && msg3.trim().isEmpty()){
+                val buy = msg.toInt()
+                val buyh = buyc
+                val buye = buyele
+                val buya = msg4.toInt()
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg2.trim().isEmpty() && msg3.trim().isEmpty() && msg4.trim().isEmpty()){
+                val buy = msg.toInt()
+                val buyh = buyc
+                val buye = buyele
+                val buya = buyali
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg2.trim().isEmpty() && msg3.trim().isEmpty() && msg4.trim().isEmpty() && msg5.trim().isEmpty()){
+                val buy = msg.toInt()
+                val buyh = buyc
+                val buye = buyele
+                val buya = buyali
+                val buyed = buyedu
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg3.trim().isEmpty()){
+                val buy = msg.toInt()
+                val buyh = msg2.toInt()
+                val buye = buyele
+                val buya = msg4.toInt()
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg3.trim().isEmpty() && msg4.trim().isEmpty()){
+                val buy = msg.toInt()
+                val buyh = msg2.toInt()
+                val buye = buyele
+                val buya = buyali
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else if(msg3.trim().isEmpty() && msg4.trim().isEmpty() && msg5.trim().isEmpty()){
+                val buy = msg.toInt()
+                val buyh = msg2.toInt()
+                val buye = buyele
+                val buya = buyali
+                val buyed = buyedu
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
+
+            }else {
+                val buy = msg.toInt()
+                val buyh = msg2.toInt()
+                val buye = msg3.toInt()
+                val buya = msg4.toInt()
+                val buyed = msg5.toInt()
+                actdatas(buy,buyh,buye,buya,buyed)
+                Navigation.findNavController(view).navigate(R.id.action_percentage2_to_pieChartFragment)
             }
 
+        }
+    }
 
+    fun actdatas(compras:Int,hogar:Int,electricos:Int,alimenots:Int, educacion:Int){
 
-
+        if(compras+hogar+electricos+alimenots+educacion == 100) {
+                val preferences = this.requireActivity().getPreferences(Context.MODE_PRIVATE)
+            with(preferences.edit()) {
+                putInt("compras_key", compras)
+                putInt("casa_key", hogar)
+                putInt("electronicos_key", electricos)
+                putInt("alimentacion_key", alimenots)
+                putInt("educacion_key", educacion)
+                apply()
+            }
+            Toast.makeText(activity, "Porcentajes aceptados", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(activity, "Porcentajes no aceptados", Toast.LENGTH_SHORT).show()
         }
     }
 
     fun getdatas(){
         val preferences = this.requireActivity().getPreferences(Context.MODE_PRIVATE)
-        val hcompras = preferences.getInt("compras_key",20)
-        val hcasa = preferences.getInt("compras_key",25)
-        val helectronicos = preferences.getInt("compras_key",10)
-        val halimentacion = preferences.getInt("compras_key",25)
-        val heducacion = preferences.getInt("compras_key",20)
+        var hcompras = preferences.getInt("compras_key",20)
+        var hcasa = preferences.getInt("casa_key",25)
+        var helectronicos = preferences.getInt("electronicos_key",15)
+        var halimentacion = preferences.getInt("alimentacion_key",20)
+        var heducacion = preferences.getInt("educacion_key",20)
+
         binding.txtbuy.hint = hcompras.toString()
         binding.txtbuy2.hint = hcasa.toString()
         binding.txtelec.hint = helectronicos.toString()
         binding.txtelec2.hint = halimentacion.toString()
         binding.txtelec3.hint = heducacion.toString()
     }
+
     companion object {
         /**
          * Use this factory method to create a new instance of

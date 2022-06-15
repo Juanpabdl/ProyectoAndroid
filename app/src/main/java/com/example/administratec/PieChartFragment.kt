@@ -37,8 +37,8 @@ class PieChartFragment : Fragment() {
     //
 
     //
-    var circularProgress: CircularProgressIndicator? = null
-    private val viewModel : PercentagesViewModel by activityViewModels()
+
+
     private var _binding: FragmentPieChartBinding? = null
     private val binding get() =  _binding!!
 
@@ -62,45 +62,35 @@ class PieChartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //setupPieChart()
         setuppie()
         setBArChart2()
         binding.btnChange.setOnClickListener(){
             Navigation.findNavController(view).navigate(R.id.action_pieChartFragment_to_percentage2)
         }
     }
-    //fun setupPieChart() {
 
 
-    //}
     fun setuppie(){
-
         binding.PieChart.setDrawHoleEnabled(true)
         binding.PieChart.setUsePercentValues(true)
         binding.PieChart.setCenterText("Porcentaje por Categoria")
         binding.PieChart.getDescription().setEnabled(false)
 
-        val l: Legend = binding.PieChart.getLegend()
-        l.verticalAlignment = Legend.LegendVerticalAlignment.TOP
-        l.horizontalAlignment = Legend.LegendHorizontalAlignment.RIGHT
-        l.orientation = Legend.LegendOrientation.VERTICAL
-        l.setDrawInside(false)
-        l.isEnabled = true
     }
+
     fun setBArChart2() {
-
         val preferences = this.requireActivity().getPreferences(Context.MODE_PRIVATE)
-        val hcompras = preferences.getInt("compras_key",20)
-        val hcasa = preferences.getInt("compras_key",25)
-        val helectronicos = preferences.getInt("compras_key",10)
-        val halimentacion = preferences.getInt("compras_key",25)
-        val heducacion = preferences.getInt("compras_key",20)
+        var hcompras = preferences.getInt("compras_key",20)
+        var hcasa = preferences.getInt("casa_key",25)
+        var helectronicos = preferences.getInt("electronicos_key",15)
+        var halimentacion = preferences.getInt("alimentacion_key",20)
+        var heducacion = preferences.getInt("educacion_key",20)
 
-        var com = hcompras.toFloat() / 100
-        var cas = hcasa.toFloat() / 100
-        var ele = helectronicos.toFloat() / 100
-        var ali = halimentacion.toFloat() / 100
-        var edu = heducacion.toFloat() / 100
+        var com = hcompras.toFloat()
+        var cas = hcasa.toFloat()
+        var ele = helectronicos.toFloat()
+        var ali = halimentacion.toFloat()
+        var edu = heducacion.toFloat()
         var coms = "Compras"
         var cass = "Casa"
         var eles = "Electronica"
@@ -123,18 +113,18 @@ class PieChartFragment : Fragment() {
             colors.add(color)
         }
 
-        val dataSet = PieDataSet(entries, "Categorias de gastos")
+        val dataSet = PieDataSet(entries,"Categoria" )
         dataSet.colors = colors
 
         val data = PieData(dataSet)
         data.setDrawValues(true)
         data.setValueFormatter(PercentFormatter(binding.PieChart))
-        data.setValueTextSize(12f)
+        data.setValueTextSize(9f)
 
         binding.PieChart.setData(data)
         binding.PieChart.invalidate()
 
-        binding.PieChart.animateY(1400, Easing.EaseInOutQuad)
+        binding.PieChart.animateY(1300, Easing.EaseInOutQuad)
 
 
     }
