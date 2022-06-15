@@ -40,6 +40,7 @@ class LlenarGastoFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var category : String? = null
+    private var categoryMaxVal : Float? = null
     private val viewModel: GastoViewModel by activityViewModels {
         GastoViewModelFactory(
             (activity?.application as GastosApp).database.gastosDao()
@@ -105,12 +106,21 @@ class LlenarGastoFragment : Fragment() {
             if(concepto.isEmpty() || binding.editTextCantidad.text.toString().isEmpty()){
                 Toast.makeText(activity,"Por favor, llene todos los campos",Toast.LENGTH_SHORT).show()
             } else {
-                lifecycleScope.launch {
-                    viewModel.agregarGasto(Gasto(0,fecha,cantidad,concepto,categoria))
+                val gastosList = buscarPorCategoria(category!!)
+                var total : Float = 0f
+                for(num in 0..(gastosList.count()-1)){
+                    total += gastosList[num].costo.toFloat()
                 }
+                if(total + cantidad >= categoryMaxVal!!){
+                    Toast.makeText(activity,"Se ha alcanzado el limite del presupuesto en esta categoria",Toast.LENGTH_SHORT).show()
+                } else {
+                    lifecycleScope.launch {
+                        viewModel.agregarGasto(Gasto(0,fecha,cantidad,concepto,categoria))
+                    }
 
-                Toast.makeText(activity,"Gasto de " + categoria + " guardado",Toast.LENGTH_SHORT).show()
-                Navigation.findNavController(view).navigate(R.id.action_llenarGastoFragment_to_agregarGastoFragment)
+                    Toast.makeText(activity,"Gasto de " + categoria + " guardado",Toast.LENGTH_SHORT).show()
+                    Navigation.findNavController(view).navigate(R.id.action_llenarGastoFragment_to_agregarGastoFragment)
+                }
             }
         }
 
@@ -136,6 +146,23 @@ class LlenarGastoFragment : Fragment() {
             return true
         }
         return false
+    }
+
+    private fun buscarPorCategoria(categoryType: String) : List<Gasto>{
+        var gastosList : List<Gasto> = listOf()
+        lifecycleScope.launch {
+            gastosList = viewModel.obtenerGastosPorCategoria(categoryType)
+        }
+        val preferences = this.requireActivity().getPreferences(Context.MODE_PRIVATE)
+        when (categoryType){
+            "Compra" ->  categoryMaxVal = preferences.getFloat("max_compra_key",200F)
+            "Casa" -> categoryMaxVal = preferences.getFloat("max_casa_key",250F)
+            "Electronicos" -> categoryMaxVal = preferences.getFloat("max_electronico_key", 150F)
+            "Alimentacion" -> categoryMaxVal = preferences.getFloat("max_alimentacion_key",200F)
+            "Educacion" -> categoryMaxVal = preferences.getFloat("max_educacion_key",200F)
+        }
+
+        return gastosList
     }
 
     companion object {
