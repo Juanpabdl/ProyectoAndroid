@@ -25,11 +25,11 @@ class Adapter(var gasto: List<Gasto>): RecyclerView.Adapter<Adapter.ViewHolder>(
             val fecha_good = spf.format(fecha)
             textViewFecha.text = fecha_good
             when (gasto[position].categoria) {
-                "Compras" -> textViewFecha.setBackgroundColor(Color.parseColor("#EC4A18"))
-                "Casa" -> textViewFecha.setBackgroundColor(Color.parseColor("#0F3AD3"))
-                "Electronicos" -> textViewFecha.setBackgroundColor(Color.parseColor("#FFC107"))
+                "Compras" -> textViewFecha.setBackgroundColor(Color.parseColor("#4CAF50"))//"#EC4A18"
+                "Casa" -> textViewFecha.setBackgroundColor(Color.parseColor("#FFC107"))//"#0F3AD3"
+                "Electronicos" -> textViewFecha.setBackgroundColor(Color.parseColor("#EC4A18"))//"#FFC107"
                 "Alimentacion" -> textViewFecha.setBackgroundColor(Color.parseColor("#2196F3"))//"#2196F3"
-                "Educacion" -> textViewFecha.setBackgroundColor(Color.parseColor("#4CAF50"))
+                "Educacion" -> textViewFecha.setBackgroundColor(Color.parseColor("#9EDA4B"))//"#4CAF50"
             }
             textViewFecha.setTextColor((Color.parseColor(("#FFFFFF"))))
             textViewDesc.text = gasto[position].concepto

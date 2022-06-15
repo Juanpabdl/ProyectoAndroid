@@ -102,7 +102,7 @@ class LlenarGastoFragment : Fragment() {
             val cantidad = binding.editTextCantidad.text.toString().toDouble()
 
             val fecha = Date()
-            if(concepto.isEmpty() || binding.editTextCantidad.text.isEmpty()){
+            if(concepto.isEmpty() || binding.editTextCantidad.text.toString().isEmpty()){
                 Toast.makeText(activity,"Por favor, llene todos los campos",Toast.LENGTH_SHORT).show()
             } else {
                 lifecycleScope.launch {
